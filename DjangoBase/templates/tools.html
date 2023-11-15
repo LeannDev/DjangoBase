@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+
+<h1>TOOLS</h1>
+
+<ul>
+    <li>tool 1</li>
+    <li>tool 2</li>
+    <li>tool 3</li>
+    {% if user.is_authenticated %}
+    <li>tool 4</li>
+    <li>tool 5</li>
+    <li>tool 6</li>
+    {% if user.premium %}
+    <li>tool 7</li>
+    <li>tool 8</li>
+    <li>tool 9</li>
+    {% endif %}
+    {% endif %}
+</ul>
+
+{% endblock %}

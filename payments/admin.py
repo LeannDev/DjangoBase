@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import PaypalModel, SinglePaymentModel
+
+admin.site.register(PaypalModel)
+admin.site.register(SinglePaymentModel)

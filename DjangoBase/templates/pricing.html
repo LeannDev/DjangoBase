@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+
+<h1>PRICING</h1>
+
+<u>
+    <li><a href="{% url 'payments' 5 %}">Price 1: $5</a></li>
+    <li><a href="{% url 'payments' 10 %}">Price 2: $10</a></li>
+    <li><a href="{% url 'payments' 15 %}">Price 3: $15</a></li>
+    <li><a href="{% url 'payments' 20 %}">Price 4: $20</a></li>
+</u>
+
+{% endblock %}

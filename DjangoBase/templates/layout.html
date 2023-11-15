@@ -28,12 +28,29 @@
         <nav>
             <div>
                 <ul>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="{% url 'tools' %}">Tools</a></li>
+                    <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">@{{user.username}}</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Get Started</a></li>
+                {% endif %}
                 </ul>
             </div>
         </nav>
-
+        <div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
         <main>
             {% block content %}
             {% endblock %}

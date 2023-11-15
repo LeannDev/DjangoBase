@@ -38,6 +38,8 @@ THIRD_APPS = [
 
 LOCAL_APPS = [
     'user.apps.UserConfig',
+    'payments.apps.PaymentsConfig',
+    'profiles.apps.ProfilesConfig',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
@@ -56,11 +58,13 @@ ROOT_URLCONF = 'DjangoBase.urls'
 
 # Template definitions
 TEMPLATE_ROOT = os.path.join(BASE_DIR, 'DjangoBase/templates')
+TEMPLATE_USER = os.path.join(BASE_DIR, 'user/templates')
+TEMPLATE_PAYMENTS = os.path.join(BASE_DIR, 'payments/templates')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_ROOT],
+        'DIRS': [TEMPLATE_ROOT, TEMPLATE_USER, TEMPLATE_PAYMENTS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user
 AUTH_USER_MODEL = 'user.User'
+
+# PayPal
+PP_API_URL = env.str('PP_API_URL')
+PP_CLIENT_ID = env.str('PP_CLIENT_ID')
+PP_SECRET = env.str('PP_SECRET')
