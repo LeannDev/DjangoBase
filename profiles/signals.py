@@ -4,7 +4,6 @@ from django.dispatch import receiver
 from user.models import User
 from .models import ProfileModel
 
-
 # Profile auto created
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
